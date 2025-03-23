@@ -4,7 +4,19 @@ import os
 
 def startCompression():
     result = subprocess.run(
-        ["paq8px", "-8", "./compression/originalSmall.txt", "./compression/compressedSmall.paq8px"], 
+        ["paq8px", "-8", "./compression/originalSmall.txt", "./compression/compressedSmall.paq8px208fix1"], 
+        capture_output=True, text=True
+    )
+
+    print(result.stdout)  # Print all output at once (since subprocess.run waits)
+    
+    if result.returncode != 0:
+        print("\nError output:")
+        print(result.stderr)  # Print errors if any
+
+def startDecompression():
+    result = subprocess.run(
+        ["paq8px", "-d", "./compression/compressedSmall.paq8px208fix1"], 
         capture_output=True, text=True
     )
 
@@ -39,6 +51,7 @@ def printFiles():
 
 def main():
     #startCompression()
+    startDecompression()
     printFiles()
 
 
