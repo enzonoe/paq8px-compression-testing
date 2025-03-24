@@ -33,6 +33,13 @@ def get_md5(file_path):
             md5.update(chunk)
     return md5.hexdigest()
 
+def printOriginal():
+    print("Original Files")
+
+def printCompressed():
+    print("Compressed Files")
+
+
 def printFiles():
     # Get the list of all files and directories
     path = ".//compression//"
@@ -48,12 +55,9 @@ def printFiles():
         else:
             print(f"{file} - [Directory]")
 
-
 def main():
     #startCompression()
-    startDecompression()
+    #startDecompression()
     printFiles()
-
-
 
 main()
